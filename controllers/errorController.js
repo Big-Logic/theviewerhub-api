@@ -1,7 +1,7 @@
 module.exports = (err, req, res, next) => {
   // console.log(err);
 
-  if (process.env === "development") {
+  if (process.env.NODE_ENV === "development") {
     if (err.name === "appError") {
       res.status(err.statusCode).json({
         errObj: { ...err, message: err.message, errStack: err.stack },
@@ -11,7 +11,7 @@ module.exports = (err, req, res, next) => {
         errObj: { name: err.name, message: err.message, errStack: err.stack },
       });
     }
-  } else if (process.env === "production") {
+  } else if (process.env.NODE_ENV === "production") {
     if (err.name === "appError") {
       res.status(err.statusCode).json({
         errObj: { ...err, message: err.message },

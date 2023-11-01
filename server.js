@@ -3,6 +3,13 @@ const mongoose = require("mongoose");
 
 ///
 dotenv.config({ path: "./config.env" });
+console.log(process.argv[process.argv.length - 1] === "-prod");
+
+if (process.argv[process.argv.length - 1] === "-prod") {
+  process.env.NODE_ENV = "production";
+} else {
+  process.env.NODE_ENV = "development";
+}
 
 //SCRIPTS
 const { handleCreate, handleDelete } = require("./scripts/modelScript");
