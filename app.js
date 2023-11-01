@@ -31,7 +31,7 @@ app.use(
       secure: "auto",
     },
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store,
   })
 );
