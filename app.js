@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const helmet = require("helmet");
 
 const app = express();
@@ -17,7 +18,10 @@ app.use(cors(corsOptions));
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const store = new session.MemoryStore();
+// const store = new session.MemoryStore();
+const store = MongoStore.create({
+  client: process.dbConnection,
+});
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
