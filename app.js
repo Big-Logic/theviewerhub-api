@@ -28,7 +28,7 @@ app.use(
     cookie: {
       maxAge: Date.now() + 10 * 24 * 60 * 60 * 1000,
       sameSite: "none",
-      secure: "auto",
+      secure: true,
     },
     resave: false,
     saveUninitialized: false,
