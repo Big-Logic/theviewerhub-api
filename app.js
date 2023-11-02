@@ -7,8 +7,8 @@ const helmet = require("helmet");
 const app = express();
 
 const corsOptions = {
-  // origin: "https://theviewerhub.onrender.com",
-  origin: "http://localhost:5173",
+  origin: "https://theviewerhub.onrender.com",
+  // origin: "http://localhost:5173",
   credentials: true,
 };
 
