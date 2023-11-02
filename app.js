@@ -7,7 +7,8 @@ const helmet = require("helmet");
 const app = express();
 
 const corsOptions = {
-  origin: "https://theviewerhub.onrender.com",
+  // origin: "https://theviewerhub.onrender.com",
+  origin: "http://localhost:5173",
   credentials: true,
 };
 
@@ -22,6 +23,7 @@ app.use(express.json());
 const store = MongoStore.create({
   client: process.dbConnection,
 });
+app.set("trust proxy", 1);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
