@@ -125,7 +125,7 @@ exports.logout = (req, res, next) => {
 exports.routeProtectorForLogin = async (req, res, next) => {
   try {
     if (!req.session.isAuthenticated || !req.session.user) {
-      throw new AppError("Please Login to access this route", 403);
+      throw new AppError("Please Login to access this resource", 403);
     }
     next();
   } catch (err) {
