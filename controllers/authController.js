@@ -56,8 +56,11 @@ exports.signup = async (req, res, next) => {
     } = req.body;
     const user = await User.create({
       firstName,
+      middleName,
       lastName,
       email,
+      gender,
+      birthDate,
       password,
     });
 
